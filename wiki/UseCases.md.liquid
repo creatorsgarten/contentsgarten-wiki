@@ -14,4 +14,5 @@ Contentsgarten may **not** be a good fit if:
 - You want a real-time WYSIWYG editing experience. In that case, use something like Notion.
 - You want a stable, battle-tested tool that scales. In that case, try MediaWiki, PmWiki, or DokuWiki.
 - You want a wiki that can be edited by anyone, even those whom you don’t trust. In order to gain flexibility while retaining simplicity, this wiki does not sanitize the contents.
-- You want to allow people to log in using something other than a GitHub account.
+- You want to allow people to log in using something other than a GitHub account. To keep things simple, Contentsgarten is tightly integrated with GitHub, only supports GitHub sign-in, and has no plan to support anything else.
+- You want every page to load in the blink of an eye. Contentsgarten is optimized for the use case where page contents are dynamic and change frequently. To ensure that we always get fresh content, data is loaded from GitHub on-demand. Therefore, load time will be slower than a statically-built sites (but on the flipside, there is no waiting for the site to build when updating a page).
