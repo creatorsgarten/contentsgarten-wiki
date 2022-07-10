@@ -4,10 +4,10 @@ Headless mode allows the wiki engine to run in an API-only mode. This allows cus
 
 Every web route on the wiki has a corresponding API route. By prefixing the URL pathname with `/api`, you can access the raw JSON data that is used to generate the page. For example,
 
-- `/wiki/HeadlessMode` &rarr; returns an HTML page
+- `/wiki/HeadlessMode` &rarr; renders an HTML page
   - `/api/wiki/HeadlessMode` &rarr; returns the data used to generate the above page
-- `/wiki/HeadlessMode?action=edit` &rarr; returns an HTML edit form
-  - `/api/wiki/HeadlessMode?action=edit` &rarr; returns JSON data used to generate the form
+- `/wiki/HeadlessMode?action=edit` &rarr; renders an edit form
+  - `/api/wiki/HeadlessMode?action=edit` &rarr; returns the data used to generate the form
 
 ## Authentication
 
@@ -15,3 +15,6 @@ Authentication is handled by [Firebase Authentication](https://firebase.google.c
 
 To call the API from the frontend, [use `await auth.currentUser?.getIdToken()` to obtain the current user’s ID token](https://firebase.google.com/docs/auth/admin/verify-id-tokens#retrieve_id_tokens_on_clients) and send it to the wiki engine via the `Authorization: Bearer <id_token>` HTTP header.
 
+To obtain information about the current user, use this API endpoint:
+
+- `/api/user` &rarr; returns information about the authentication state
