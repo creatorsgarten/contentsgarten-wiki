@@ -8,3 +8,10 @@ By prefixing the URL pathname with `/api`, you can access the raw JSON data that
   - `/api/wiki/HeadlessMode` &rarr; returns the data used to generate the above page
 - `/wiki/HeadlessMode?action=edit` &rarr; returns an HTML edit form
   - `/api/wiki/HeadlessMode?action=edit` &rarr; returns JSON data used to generate the form
+
+## Authentication
+
+Authentication is handled by [Firebase Authentication](https://firebase.google.com/docs/auth). Users [sign in with GitHub through Firebase](https://firebase.google.com/docs/auth/web/github-auth), and Firebase SDK handles the authentication state (such as storing and rotating ID tokens).
+
+To call the API from the frontend, [use `await auth.currentUser?.getIdToken()` to obtain the current user’s ID token](https://firebase.google.com/docs/auth/admin/verify-id-tokens#retrieve_id_tokens_on_clients) and send it to the wiki engine via the `Authorization: Bearer <id_token>` HTTP header.
+
