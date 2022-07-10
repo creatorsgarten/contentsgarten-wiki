@@ -1,1 +1,10 @@
-Headless mode allows the wiki engine to run in an API-only mode. This allows custom frontend to be implemented on top of the wiki engine. Enabling headless mode essentially disables the web frontend.
+Headless mode allows the wiki engine to run in an API-only mode. This allows custom frontends to be implemented on top of the wiki engine. Enabling headless mode essentially disables the web frontend.
+
+## How it works
+
+By prefixing the URL pathname with `/api`, you can access the raw JSON data that is used to generate the page. For example,
+
+- `/wiki/HeadlessMode` &rarr; returns an HTML page
+- `/api/wiki/HeadlessMode` &rarr; returns JSON data that is used to generate the page
+- `/wiki/HeadlessMode?action=edit` &rarr; returns an HTML edit form
+- `/api/wiki/HeadlessMode?action=edit` &rarr; returns JSON data that is used to generate the form
