@@ -2,7 +2,7 @@ Headless mode allows the wiki engine to run in an API-only mode. This allows cus
 
 ## How it works
 
-By prefixing the URL pathname with `/api`, you can access the raw JSON data that is used to generate the page. For example,
+Every web route on the wiki has a corresponding API route. By prefixing the URL pathname with `/api`, you can access the raw JSON data that is used to generate the page. For example,
 
 - `/wiki/HeadlessMode` &rarr; returns an HTML page
   - `/api/wiki/HeadlessMode` &rarr; returns the data used to generate the above page
