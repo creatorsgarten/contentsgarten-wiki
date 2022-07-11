@@ -4,10 +4,12 @@
 
 ## Goals
 
-- ✅ Contents stored on GitHub repo, accessed and manipulated using Octokit (using GitHub App or Personal Access Token).
-- ✅ Write Markdown. Rendered using `markdown-it` with Tailwind Typography.
+{% assign done = "✅" %}
+
+- {{done}} Contents stored on GitHub repo, accessed and manipulated using Octokit (using GitHub App or Personal Access Token).
+- {{done}} Write Markdown. Rendered using `markdown-it` with Tailwind Typography.
 - Pages can include templates using Liquid tags.
-- ✅ Users authenticate via GitHub, through Firebase.
+- {{done}} Users authenticate via GitHub, through Firebase.
 - Allowed users can make changes to the wiki page through the web interface if the access control rules allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
 - [Headless (API-only) mode](/wiki/HeadlessMode) available.
 
