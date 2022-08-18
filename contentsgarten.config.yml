@@ -3,3 +3,5 @@ auth:
     apiKey: AIzaSyCKZng55l411pps2HgMcuenMQou-NTQ0QE
     authDomain: creatorsgarten-wiki.firebaseapp.com
     projectId: creatorsgarten-wiki
+editors:
+  - gitHubUserId: 193136
