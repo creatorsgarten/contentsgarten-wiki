@@ -26,6 +26,6 @@ Currently has a bare bones, incomplete and janky implementation... The wiki engi
 
 ## Architecture
 
-- Contentsgarten is a [Remix](https://remix.run/) app, but its core wiki engine is written in a framework-agnostic way.
+- Contentsgarten is a [Remix](https://remix.run/) app, but its core wiki engine is a tRPC router.
 - The [WikiActor](https://github.com/creatorsgarten/contentsgarten/blob/main/app/wiki-engine/actor.ts) class acts as a [facade](https://refactoring.guru/design-patterns/facade) to the core wiki engine, which handles authentication and authorization concerns among others. All API routes delegate most of the work to this class.
 - Every web route has a corresponding API route. This allows a completely custom frontend to be developed ([headless mode](/wiki/HeadlessMode)).
