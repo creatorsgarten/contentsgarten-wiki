@@ -20,10 +20,11 @@ Currently has a bare bones, incomplete and janky implementation... The wiki engi
 - {{done}} Write [Markdown](/wiki/Markdown). Rendered using `markdown-it` with [Tailwind Typography](https://tailwindcss.com/docs/typography-plugin).
 - {{done}} Pages can include templates and other rudimentary logic using [Liquid](/wiki/Liquid) tags.
 - {{done}} Users authenticate via GitHub, through Firebase.
-- Allowed users can make changes to the wiki page through the web interface if the access control rules allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
 - {{done}} Public [API](/wiki/API) available.
+- Allowed users can make changes to the wiki page through the web interface if the access control rules allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
 - Can be used as a library.
 
 ## Architecture
 
 - The Contentsgarten Wiki is a [Remix](https://remix.run/) app, but its core wiki engine is a [tRPC](https://trpc.io/) router, which allows integrating into any Node.js app.
+- Authentication is handled through Firebase Authentication.
