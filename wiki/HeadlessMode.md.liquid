@@ -1,24 +1,7 @@
-::: lead
-Headless mode allows the wiki engine to run in an API-only mode.
+::: danger No longer relevant
+
+Since the [rewrite of the wiki engine to a tRPC-based core](https://github.com/creatorsgarten/contentsgarten/pull/13), this page is no longer relevant.
+
 :::
 
-This allows custom frontends to be implemented on top of the wiki engine. Enabling headless mode essentially disables the web frontend.
-
-## How it works
-
-Every web route on the wiki has a corresponding API route. By prefixing the URL pathname with `/api`, you can access the raw JSON data that is used to generate the page. For example,
-
-- `/wiki/HeadlessMode` &rarr; renders an HTML page
-  - `/api/wiki/HeadlessMode` &rarr; returns the data used to generate the above page
-- `/wiki/HeadlessMode?action=edit` &rarr; renders an edit form
-  - `/api/wiki/HeadlessMode?action=edit` &rarr; returns the data used to generate the form
-
-## Authentication
-
-Authentication is handled by [Firebase Authentication](https://firebase.google.com/docs/auth). Users [sign in with GitHub through Firebase](https://firebase.google.com/docs/auth/web/github-auth), and Firebase SDK handles the authentication state (such as storing and rotating ID tokens).
-
-To call the API from the frontend, [use `await auth.currentUser?.getIdToken()` to obtain the current user’s ID token](https://firebase.google.com/docs/auth/admin/verify-id-tokens#retrieve_id_tokens_on_clients) and send it to the wiki engine via the `Authorization: Bearer <id_token>` HTTP header.
-
-To obtain information about the current user, use this API endpoint:
-
-- `/api/user` &rarr; returns information about the authentication state
+Check out the [API](/wiki/API) page instead.
