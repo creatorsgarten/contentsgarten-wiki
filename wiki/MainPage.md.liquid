@@ -22,6 +22,9 @@ Currently has a bare bones, incomplete and janky implementation... The wiki engi
 - {{done}} Users authenticate via GitHub, through Firebase.
 - {{done}} Public [API](/wiki/API) available.
 - Allowed users can make changes to the wiki page through the web interface if the access control rules allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
+- {{done}} Should be free-to-host for small wikis.
+  - Serverless route: The wiki can be hosted on Netlify or Vercel (free plan available) with a Redis cache (free plans available on Redis Labs, Render, or Upstash).
+  - Stateful route: The wiki can be hosted on a server that runs containers like Fly.io (free plan available) with an in-memory cache given that no horizontal scaling is done.
 - {{done}} Can be used as a library.
   - Publish to npm
 
@@ -33,6 +36,7 @@ Currently has a bare bones, incomplete and janky implementation... The wiki engi
 - Redis-based caching powered by [keyv](https://www.npmjs.com/package/keyv) for faster page loads.
   - GitHub API for loading content has a high latency. Adding a Redis cache reduced the page load time from 4 seconds to less than 0.3 seconds. With a Redis server in a closer region, this can go down further.
   - The cache may be _untrusted_; that is, it may be shared with other projects, so cached data may be signed to avoid tampering with the cache.
+  - Alternatively, if your wiki is run on a single instance (no horizontal scaling), in-memory caching can be used instead.
 - Encourages the stale-while-revalidate fetching style. On server rendering, possible-stale data will be fetched from the cache. Once the page is loaded, client-side JavaScript can fetch the “authoritative” version of the page and update the cache with the latest version.
 
 
