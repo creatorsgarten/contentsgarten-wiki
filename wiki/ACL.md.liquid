@@ -1,0 +1,13 @@
+(DRAFT)
+
+Write access to the wiki can be controlled in two ways:
+
+1. **Wiki policy.** This can be configured in the configuration file and applies to the whole wiki.
+
+2. **Page ACL.** This applies to individual pages. For example, you can add editors to a specific page to grant them access.
+
+Permissions:
+
+- `edit` - Can edit the page contents and its front-matter. However some front-matter keys are reserved and require extra permissions to edit.
+
+  - `manage_editors` — Can edit the `acl`.
