@@ -6,7 +6,14 @@ Write access to the wiki can be controlled in two ways:
 
 2. **Page ACL.** This applies to individual pages. For example, you can add editors to a specific page to grant them access.
 
+Policy structure:
+
+- `userId`
+- `team`
+- `page`
+- `frontmatterKey`
+
 Permissions:
 
 - `edit` - Can edit the page contents and its front-matter. 
-  - `edit_contents` — Can edit the contents but not its front-matter.
+  - `editContents` — Can edit the contents but not its front-matter.
