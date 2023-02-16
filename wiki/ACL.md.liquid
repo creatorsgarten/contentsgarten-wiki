@@ -1,24 +1,19 @@
-{% include Draft %}
-
-Write access to the wiki can be controlled in two ways:
-
-1. **Wiki policy.** This can be configured in the configuration file and applies to the whole wiki.
-
-2. **Page ACL.** This applies to individual pages. For example, you can add editors to a specific page to grant them access.
+Write access to the wiki can be controlled by adding policies to `contentsgarten.config.yml`.
 
 Policy structure:
 
-- `permission`
-- `userId`
-- `userIdNot`
-- `team`
-- `page`
-- `pageNot`
-- `frontmatterKey`
-- `frontmatterKeyNot`
+- `name` — Name of the policy
+- `permission` — Permission to grant
+- `userId` — User ID(s) to explicitly grant
+- `userIdNot` — Prevent the policy from applying in matched user ID(s)
+- `team` — Organization slug and team slug (`org_slug/team_slug`) to grant if user is inside that team
+- `page` — Filter the policy to only apply on specific page(s)
+- `pageNot` — Prevent the policy from applying on specific page(s)
+- `frontmatterKey` — (unimplemented)
+- `frontmatterKeyNot` — (unimplemented)
 
 Permissions:
 
 - `edit` - Can edit the page content and its front-matter. 
   - `editContent` — Can edit the content but not its front-matter.
-- `clearCache` — Can clear the server-side cache.
+- `clearCache` — Can clear the server-side cache. (unimplemented)
