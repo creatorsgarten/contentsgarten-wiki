@@ -10,32 +10,15 @@ Policy structure:
 
 - `permission`
 - `userId`
+- `userIdNot`
 - `team`
 - `page`
+- `pageNot`
 - `frontmatterKey`
+- `frontmatterKeyNot`
 
 Permissions:
 
 - `edit` - Can edit the page content and its front-matter. 
   - `editContent` — Can edit the content but not its front-matter.
-
-Draft algo:
-
-1. Given a set of contexts (permissions and filter), find candidate policies, e.g.
-
-   ```
-   userContext = { userId: '...', team: ExpensiveOperation }
-   pageContext = { page: '...' }
-
-   [
-     { ...userContext, ...pageContext, permission: 'editContent' },
-     { ...userContext, ...pageContext, permission: 'edit', frontmatterKey: 'title' },
-   ]
-   ```
-
-2. If any policy applies without any pending ExpensiveOperation, consider it granted.
-
-3. Resolve the remaining ExpensiveOperation’s. If any policy applies, consider it granted.
-
-4. If all cases failed, consider it denied.
-
+- `clearCache` — Can clear the server-side cache.
