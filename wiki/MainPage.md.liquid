@@ -21,7 +21,7 @@ Currently has a bare bones, incomplete and janky implementation... The wiki engi
 - {{done}} Pages can include templates and other rudimentary logic using [Liquid](/wiki/Liquid) tags.
 - {{done}} Users authenticate via GitHub, through Firebase.
 - {{done}} Public [API](/wiki/API) available.
-- Allowed users can make changes to the wiki page through the web interface if the [access control rules](/wiki/ACL) allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
+- {{done}} Allowed users can make changes to the wiki page through the web interface if the [access control rules](/wiki/ACL) allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
 - {{done}} Should be free-to-host for small wikis.
   - Serverless route: The wiki can be hosted on Netlify or Vercel (free plan available) with a Redis cache (free plans available on Redis Labs, Render, or Upstash).
   - Stateful route: The wiki can be hosted on a server that runs containers like (free usage quota is available on Fly.io, Railway and Google Cloud Run) with an in-memory cache given that no horizontal scaling is done.
