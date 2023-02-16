@@ -4,5 +4,6 @@ auth:
     authDomain: creatorsgarten-wiki.firebaseapp.com
     projectId: creatorsgarten-wiki
 policies:
-  - permission: edit
+  - name: Allow dtinth to edit the wiki
+    permission: edit
     userId: 193136
