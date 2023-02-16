@@ -15,20 +15,22 @@ This wiki engine is currently being used on:
 
 ## Goals
 
-{% assign done = "✅" %}
+{% assign tba = "🚧" %}
 
-- {{done}} Contents stored on GitHub repo, accessed and manipulated using Octokit (using a GitHub App or (TBA) Personal Access Token).
-- {{done}} Write [Markdown](/wiki/Markdown). Rendered using `markdown-it` with [Tailwind Typography](https://tailwindcss.com/docs/typography-plugin).
-- {{done}} Pages can include templates and other rudimentary logic using [Liquid](/wiki/Liquid) tags.
-- {{done}} Users authenticate via GitHub, through Firebase.
-- {{done}} Public [API](/wiki/API) available.
-- {{done}} Allowed users can make changes to the wiki page through the web interface if the [access control rules](/wiki/ACL) allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
-- {{done}} Should be free-to-host for small wikis.
+- Contents are stored [on a GitHub repo](https://github.com/creatorsgarten/contentsgarten-wiki).
+- Uses a separate ACL. Allowed users can make changes to the wiki page through the web interface if the [access control rules](/wiki/ACL) allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
+- Agnostic of markup format. This wiki site uses [Markdown](/wiki/Markdown), rendered using `markdown-it` with [Tailwind Typography](https://tailwindcss.com/docs/typography-plugin).
+- Pages can include templates and other rudimentary logic using [Liquid](/wiki/Liquid) tags.
+- Users authenticate via GitHub. Firebase Auth manages the client-side session.
+- Public [API](/wiki/API) available.
+- Should be free-to-host for small wikis.
   - Serverless route: The wiki can be hosted on Netlify or Vercel (free plan available) with a Redis cache (free plans available on Redis Labs, Render, or Upstash).
   - Stateful route: The wiki can be hosted on a server that runs containers like (free usage quota is available on Fly.io, Railway and Google Cloud Run) with an in-memory cache given that no horizontal scaling is done.
-- {{done}} Can be used as a library.
-  - Publish to npm
-- Automatic hierarchy. Do you always have a messy Notion sidebar despite your effort in trying to organize it? Contentsgarten aims to automatically organize pages based on how pages are linked together.
+- Can be used as a library.
+  - {{tba}} Publish to npm
+- {{tba}} Automatic hierarchy. Do you always have a messy Notion sidebar despite your effort in trying to organize it? Contentsgarten aims to automatically organize pages based on how pages are linked together.
+
+{{tba}} = future goals
 
 ## Architecture
 
