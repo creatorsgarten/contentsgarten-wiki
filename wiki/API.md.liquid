@@ -6,6 +6,10 @@ Everything that happens on the web interface goes through a [tRPC](https://trpc.
 
 This API is designed to be callable from both [server-side](https://trpc.io/docs/server-side-calls) code (e.g. for server-side rendering of wiki pages) and from the browser.
 
+## API reference
+
+Check out <https://wiki.creatorsgarten.org/api> for an API reference.
+
 ## Authentication
 
 Contentsgarten uses [Firebase Authentication](https://firebase.google.com/docs/auth) to handle authentication.
@@ -13,7 +17,3 @@ Contentsgarten uses [Firebase Authentication](https://firebase.google.com/docs/a
 - Users [sign in with GitHub through Firebase](https://firebase.google.com/docs/auth/web/github-auth).
 - Firebase SDK handles the authentication state in the client side (such as storing and rotating ID tokens).
 - When invoking APIs, the frontend [obtains the ID token](https://firebase.google.com/docs/auth/admin/verify-id-tokens#retrieve_id_tokens_on_clients) from the Firebase SDK and sends it to the API as a Bearer token.
-
-## API reference
-
-Check out <https://wiki.creatorsgarten.org/api> for an API reference.
