@@ -1,4 +1,4 @@
-When developing locally, there are multiple approaches:
+When developing locally, there are multiple mode of operation:
 
 1. Develop the frontend only and use the production backend.
 
@@ -6,14 +6,24 @@ When developing locally, there are multiple approaches:
    BACKEND=https://contentsgarten.netlify.app
    ```
 
+   - Pro: You can develop the frontend against real, production data, without having to configure any secret key or credential.
+   - Con: You cannot work on backend under this mode.
+
 2. Develop both the frontend and backend, but use fake implementations of 3rd party services.
 
    ```
    BACKEND=fake
    ```
 
+   - Pro: You can develop both frontend and backend without having to configure any secret key or credential.
+   - Pro: You can run system-level testing against it, and it will run very fast (because test doubles are used in place of 3rd party dependencies)
+   - Con: You don’t have the confidence that the app would work when integrated with the 3rd third party services.
+
 3. Develop both the frontend and backend, using real services. (This is the default setting.)
 
    ```
    BACKEND=real
    ```
+
+   - Pro: You have the highest confidence that your code will work correctly when integrated.
+   - Con: Takes some effort to set up. Requires setting up a GitHub app, a GitHub repo, a GitHub App installation, as well as a Redis instance.
