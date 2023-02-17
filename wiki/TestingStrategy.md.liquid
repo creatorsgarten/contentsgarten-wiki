@@ -1,0 +1,7 @@
+**Contentsgarten wiki** is a full-stack project (using Remix + tRPC). The Contentsgarten engine heavily depends on multiple 3rd party services. Even though the project is open source, if no consideration is made with regards to testability, a developer who clones the project will not be able to do anything with it until the configuration and secret credentials are set up.
+
+Two things will be done to make this project easier to test and develop.
+
+1. **Switchable backend** — Allow the frontend to connect to the production backend instead of local backend. Developers who works on the frontend part will be able to develop and test against real data without having to set up anything.
+
+2. **Test doubles** — Allow for various 3rd party services to be replaced with a fake version.
