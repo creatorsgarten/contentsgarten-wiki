@@ -21,7 +21,7 @@ This wiki engine is currently being used on:
 
 - Contents are stored [on a GitHub repo](https://github.com/creatorsgarten/contentsgarten-wiki).
 - Uses a separate ACL. Allowed users can make changes to the wiki page through the web interface if the [access control rules](/wiki/ACL) allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
-- Markup format agnostic. The frontend decides how to parse and render the page contents. The default frontend uses [Markdown](/wiki/Markdown), rendered using `markdown-it` with [Tailwind Typography](https://tailwindcss.com/docs/typography-plugin).
+- Markup format agnostic. The frontend decides how to parse and render the page contents. The default frontend uses [Markdown](/wiki/Markdown), rendered using `micromark` with [Tailwind Typography](https://tailwindcss.com/docs/typography-plugin).
 - Pages can include templates and other rudimentary logic using [Liquid](/wiki/Liquid) tags.
 - Users authenticate using GitHub via Firebase Auth.
 - Public [API](/wiki/API) available that can be called on the client side.
