@@ -1,49 +1,7 @@
 :::lead
-Contentsgarten supports Markdown with a few extensions inspired by [VitePress](https://vitepress.vuejs.org/guide/markdown.html).
+Contentsgarten is markup language agnostic. However, a library `@contentsgarten/markdown` is provided as an opiniated Markdown renderer, with a few syntax extensions inspired by [VitePress](https://vitepress.vuejs.org/guide/markdown.html) and [Jekyll](https://jekyllrb.com/docs/liquid/).
 :::
 
 It uses [micromark](https://github.com/micromark/micromark) under the hood.
 
-## Custom containers
-
-The syntax is different from VitePress — there must be no space between `:::` and the directive name.
-
-:::info
-This is an info box.
-:::
-
-:::tip
-This is a tip.
-:::
-
-:::warning
-This is a warning.
-:::
-
-:::danger
-This is a dangerous warning.
-:::
-
-:::details
-This is a details block.
-:::
-
-## Leading text
-
-:::lead
-A leading text is displayed larger than other text. Usually used for the 1st paragraph.
-:::
-
-```md
-:::lead
-A leading text is displayed larger than other text. Usually used for the 1st paragraph.
-:::
-```
-
-## Unknown directive
-
-:::unknown
-when an unknown directive is found, it is rendered as-is :unknown[unknown]
-:::
-
-::unknown
+For more information, see [Syntax](/wiki/Syntax) for a reference.
