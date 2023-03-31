@@ -2,9 +2,9 @@
 **Contentsgarten** is an open-source headless, modern, cloud-native wiki engine.
 :::
 
-For team wikis, and collaborative digital gardens — check out the [UseCases](/wiki/UseCases) page for more information.
+For team wikis, and collaborative digital gardens — check out the [[use cases]] page for more information.
 
-To see all pages, check out [Special/AllPages](/wiki/Special/AllPages).
+To see all pages, check out [[Special/AllPages]].
 
 ## Instances
 
@@ -22,10 +22,10 @@ This wiki engine is currently being used on:
 
 - Contents are stored [on a GitHub repo](https://github.com/creatorsgarten/contentsgarten-wiki).
 - Uses a separate ACL. Allowed users can make changes to the wiki page through the web interface if the [access control rules](/wiki/ACL) allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
-- Markup format agnostic. The frontend decides how to parse and render the page contents. The default frontend uses [Markdown](/wiki/Markdown), rendered using `micromark` with [Tailwind Typography](https://tailwindcss.com/docs/typography-plugin).
-- Pages can include templates and other rudimentary logic using [Liquid](/wiki/Liquid) tags.
+- Markup format agnostic. The frontend decides how to parse and render the page contents. The default frontend uses [[Markdown]], rendered using `micromark` with [Tailwind Typography](https://tailwindcss.com/docs/typography-plugin).
+- Pages can include templates and other rudimentary logic using [[Liquid]] tags.
 - Users authenticate using GitHub via Firebase Auth.
-- Public [API](/wiki/API) available that can be called on the client side.
+- Public [[API]] available that can be called on the client side.
 - Should be free-to-host for small wikis.
   - Serverless route: The wiki can be hosted on Netlify or Vercel (free plan available) with a Redis cache (free plans available on Redis Labs, Render, or Upstash).
      - This wiki you’re reading is hosted on [Netlify](https://netlify.app/) with a Redis cache hosted on [Render](https://render.com/).
