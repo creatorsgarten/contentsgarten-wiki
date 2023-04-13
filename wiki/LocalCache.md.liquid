@@ -1,3 +1,15 @@
 :::warning
-This is a work in progress
+This is just a rough draft.
 :::
+
+Although Contentsgarten uses GitHub as _the_ sole source of truth for the wiki contents, querying data directly from GitHub without using a local database has a few major drawbacks.
+
+- GitHub API is slow to respond and has rate limiting. From Thailand, requesting the required configuration and data from GitHub to build a page takes about 2 seconds. Using a cache can potentially solve this problem.
+
+- We want to be able to query the data across multiple pages without knowing which page it belongs to in order to ask questions such as “what links here?”.
+
+## Architecture
+
+Contentsgarten will not fetch file contents from GitHub directly. Instead, it will consult from the **local cache database.** If the data is not in the local database, we fetch the data from GitHub and load it into the local database.
+
+The **local cache database** is designed in a way such that the database can be dropped and all the data inside can be regenerated from the contents in GitHub (keeping it as the _sole_ source of truth).
