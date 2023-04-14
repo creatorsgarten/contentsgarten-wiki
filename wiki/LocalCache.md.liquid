@@ -1,7 +1,3 @@
-:::warning
-This is just a rough draft.
-:::
-
 Although Contentsgarten uses GitHub as _the_ sole source of truth for the wiki contents, querying data directly from GitHub without using a local database has a few major drawbacks.
 
 - GitHub API is slow to respond and has rate limiting. From Thailand, requesting the required configuration and data from GitHub to build a page takes about 2 seconds. Using a cache can potentially solve this problem.
@@ -19,8 +15,13 @@ interface PageCacheEntry {
   /** Page reference */
   _id: string
 
-  contents: string
-  revision: string
+  /** Version of the cache entry, to check if the cache is applicable */
+  cacheVersion: string
+
+  data: {
+    contents: string
+    revision: string
+  }
   lastModified: Date
 
   /** The time the cache was last updated */
