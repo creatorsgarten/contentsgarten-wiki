@@ -19,8 +19,6 @@ This wiki engine is currently being used on:
 
 ## Goals
 
-{% assign tba = "🚧" %}
-
 - Contents are stored [on a GitHub repo](https://github.com/creatorsgarten/contentsgarten-wiki).
 - Uses a separate ACL. Allowed users can make changes to the wiki page through the web interface if the [access control rules](/wiki/ACL) allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
 - Markup format agnostic. The frontend decides how to parse and render the page contents. The default frontend uses [[Markdown]], rendered using `micromark` with [Tailwind Typography](https://tailwindcss.com/docs/typography-plugin).
@@ -33,9 +31,9 @@ This wiki engine is currently being used on:
   - Stateful route: The wiki can be hosted on a server that runs containers like (free usage quota is available on Fly.io, Railway, Google Cloud Run, and Deploys.app) with an in-memory cache, given that no horizontal scaling is done.
      - The [Contentsgarten wiki](https://contentsgarten.netlify.app/wiki/MainPage) is hosted on [Deploys.app](https://www.deploys.app/).
 - Can be used as a library.
-  - {{tba}} Publish to npm
+  - Publish to npm
 - {{tba}} Automatic hierarchy. Do you always have a messy Notion sidebar despite your effort in trying to organize it? Contentsgarten aims to automatically organize pages based on how pages are linked together.
-- {{tba}} Uses a MongoDB database as a [[local cache]].
+- Uses a MongoDB database as a [[local cache]].
 
 {{tba}} = future goals (unimplemented)
 
