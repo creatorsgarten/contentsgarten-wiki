@@ -26,9 +26,8 @@ This wiki engine is currently being used on:
 - Users authenticate using GitHub via Firebase Auth.
 - Public [[API]] available that can be called on the client side.
 - Should be free-to-host for small wikis.
-  - Serverless route: The wiki can be hosted on Netlify or Vercel (free plan available) with a Redis cache (free plans available on Redis Labs, Render, or Upstash).
-     - This wiki you’re reading is hosted on [Netlify](https://netlify.app/) with a Redis cache hosted on [Render](https://render.com/).
-  - Stateful route: The wiki can be hosted on a server that runs containers like (free usage quota is available on Fly.io, Railway, Google Cloud Run, and Deploys.app) with an in-memory cache, given that no horizontal scaling is done.
+  - Serverless route: The wiki can be hosted on Netlify or Vercel (free plan available).
+  - Stateful route: The wiki can be hosted on a server that runs containers like (free usage quota is available on Fly.io, Railway, Google Cloud Run, and Deploys.app).
      - The [Contentsgarten wiki](https://contentsgarten.netlify.app/wiki/MainPage) is hosted on [Deploys.app](https://www.deploys.app/).
 - Can be used as a library.
   - Publish to npm
@@ -42,11 +41,8 @@ This wiki engine is currently being used on:
 - The core wiki engine is a [tRPC](https://trpc.io/) router, which allows integrating into any Node.js app.
   - The Contentsgarten Wiki you are seeing here is a [Remix](https://remix.run/) app.
 - Authentication is handled through Firebase Authentication.
-- Redis-based caching powered by [keyv](https://www.npmjs.com/package/keyv) for faster page loads.
-  - GitHub API for loading content has a high latency. Adding a Redis cache reduced the page load time from 4 seconds to less than 0.3 seconds. With a Redis server in a closer region, this can go down further.
-  - The cache may be _untrusted_; that is, it may be shared with other projects, so cached data may be signed to avoid tampering with the cache.
-  - Alternatively, if your wiki is run on a single instance (no horizontal scaling), in-memory caching can be used instead.
-- Encourages the stale-while-revalidate fetching style. On server rendering, possible-stale data will be fetched from the cache. Once the page is loaded, client-side JavaScript can fetch the “authoritative” version of the page and update the cache with the latest version.
+- GitHub is source of truth, with MongoDB as a [[local cache]].
+- Encourages the stale-then-revalidate fetching style. On server rendering, possibly-stale data will be fetched from the cache to render the page as soon as possible. Once the page is loaded, client-side JavaScript kicks in and makes another request to update the page from GitHub.
 
 
 
