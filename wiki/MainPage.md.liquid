@@ -17,26 +17,25 @@ For team wikis, and collaborative digital gardens — check out the [[use cases]
 
 This wiki engine is currently being used on:
 
-| Site | Frontend |
-| --- | --- |
-| [**Creatorsgarten wiki**](https://wiki.creatorsgarten.org) | Astro |
-| [Contentsgarten wiki](https://contentsgarten.netlify.app/wiki/MainPage) (you are here!) | Remix |
-| [wiki.wonderful.software](https://wiki.wonderful.software) | Next.js |
+| Site | Frontend | Hosting |
+| --- | --- | --- |
+| [**Creatorsgarten website**](https://creatorsgarten.org) | Astro | Deploys.app |
+| [Contentsgarten wiki](https://contentsgarten.netlify.app/wiki/MainPage) (you are here!) | Remix | Netlify |
+| [wiki.wonderful.software](https://wiki.wonderful.software) | Next.js | Hop.io |
 
 ## Goals
 
 - Contents are stored [on a GitHub repo](https://github.com/creatorsgarten/contentsgarten-wiki).
-- Uses a separate ACL. Allowed users can make changes to the wiki page through the web interface if the [access control rules](/wiki/ACL) allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
+- Uses a separate authorization layer from GitHub. Authorized users can make changes to the wiki page through the web interface if the authorization rules allows for it, even if the user does not have write access to the repo. (This effectively skips the pull request and invitation workflows.)
 - Uses [[Markdown]] as a native markup format.
 - Pages can include templates and other rudimentary logic using [[Liquid]] tags.
 - Users authenticate using GitHub via Firebase Auth.
 - Public [[API]] available that can be called on the client side.
 - Should be free-to-host for small wikis.
   - Serverless route: The wiki can be hosted on Netlify or Vercel (free plan available).
-  - Stateful route: The wiki can be hosted on a server that runs containers like (free usage quota is available on Fly.io, Railway, Google Cloud Run, and Deploys.app).
+  - Stateful route: The wiki can be hosted on a server that runs containers (free usage quota is available on Fly.io, Railway.app, Hop.io, Google Cloud Run, Azure Container Apps, and Deploys.app).
      - The [Contentsgarten wiki](https://contentsgarten.netlify.app/wiki/MainPage) is hosted on [Deploys.app](https://www.deploys.app/).
 - Can be used as a library.
-  - Publish to npm
 - {{tba}} Automatic hierarchy. Do you always have a messy Notion sidebar despite your effort in trying to organize it? Contentsgarten aims to automatically organize pages based on how pages are linked together.
 
 {{tba}} = future goals (unimplemented)
@@ -44,11 +43,6 @@ This wiki engine is currently being used on:
 ## Architecture
 
 - The core wiki engine is a [tRPC](https://trpc.io/) router, which allows integrating into any Node.js app.
-  - The Contentsgarten Wiki you are seeing here is a [Remix](https://remix.run/) app.
-- Authentication is handled through Firebase Authentication.
+- Authentication is handled through Firebase Authentication or through custom auth.
 - GitHub is source of truth, with MongoDB as a [[local cache]].
 - Encourages the stale-then-revalidate fetching style. On server rendering, possibly-stale data will be fetched from the cache to render the page as soon as possible. Once the page is loaded, client-side JavaScript kicks in and makes another request to update the page from GitHub.
-
-
-
-
