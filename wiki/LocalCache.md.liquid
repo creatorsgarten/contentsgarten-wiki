@@ -9,23 +9,3 @@ Although Contentsgarten uses GitHub as _the_ sole source of truth for the wiki c
 Contentsgarten will not fetch file contents from GitHub directly. Instead, it will consult from the **local cache database.** If the data is not in the local database, we fetch the data from GitHub and load it into the local database.
 
 The **local cache database** is designed in a way such that the database can be dropped and all the data inside can be regenerated from the contents in GitHub (keeping it as the _sole_ source of truth).
-
-```ts
-interface PageCacheEntry {
-  /** Page reference */
-  _id: string
-
-  /** Version of the cache entry, to check if the cache is applicable */
-  cacheVersion: string
-
-  data: {
-    contents: string
-    revision: string
-  }
-  lastModified: Date
-
-  /** The time the cache was last updated */
-  cached: Date
-}
-```
-
