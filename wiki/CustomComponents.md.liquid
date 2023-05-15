@@ -2,21 +2,33 @@
 Contentsgarten allows adding custom components on the page by leveraging the [directive syntax](https://github.com/micromark/micromark-extension-directive), a [proposed Markdown extension](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444).
 :::
 
-They can be used to render elements other than those defined by Markdown. The syntax look like this:
+They can be used to render elements other than those defined by Markdown.
 
-- Inline component
+# Examples
+
+On Creatorsgarten wiki:
+
+- [`:::Draft`](https://creatorsgarten.org/wiki/Syntax#draft-block) — Mark a piece of text as a draft
+- [`::Message`](https://creatorsgarten.org/wiki/Syntax#message) — Displays a message balloon, facilitates using a wiki as a discussion medium.
+- [`:Icon`](https://creatorsgarten.org/wiki/Syntax#icon) — Displays an icon.
+
+# Basic Syntax
+
+The syntax look like this:
+
+- **Inline components** are considered an inline element. It will be wrapped in a paragraph if used on its own.
 
   ```
   :ComponentName[label]{key=value}
   ```
 
-- Block component
+- **Block components** are considered a block element without children.
 
   ```
   ::ComponentName[label]{key=value}
   ```
 
-- Container component
+- **Container components** can contain children.
 
   ```
   :::ComponentName[label]{key=value}
@@ -24,4 +36,7 @@ They can be used to render elements other than those defined by Markdown. The sy
   :::
   ```
 
-ComponentName must start with an uppercase to be recognized.
+Rules:
+
+- ComponentName must start with an uppercase to be recognized.
+- `[label]` and `{key=value}` parts are optional.
