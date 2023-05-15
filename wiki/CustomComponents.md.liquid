@@ -1,3 +1,27 @@
 :::lead
 Contentsgarten allows adding custom components on the page by leveraging the [directive syntax](https://github.com/micromark/micromark-extension-directive), a [proposed Markdown extension](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444).
 :::
+
+They can be used to render elements other than those defined by Markdown. The syntax look like this:
+
+- Inline component
+
+  ```
+  :ComponentName[label]{key=value}
+  ```
+
+- Block component
+
+  ```
+  ::ComponentName[label]{key=value}
+  ```
+
+- Container component
+
+  ```
+  :::ComponentName[label]{key=value}
+  children contents
+  :::
+  ```
+
+ComponentName must start with an uppercase to be recognized.
