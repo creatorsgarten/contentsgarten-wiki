@@ -43,28 +43,41 @@ Rules:
 
 ## How it works
 
-1. When Markdown is being rendered into HTML by `@contentsgarten/markdown`, it is converted into a custom element syntax.
+1. When Markdown is being rendered into HTML by `@contentsgarten/markdown`, it is converted into a custom element syntax. (This is done by Contentsgarten backend.)
 
    For example this:
 
    ```md
-   :::Component
-   children
+   :::Greeting
+   World
    :::
    ```
 
    …gets turned into this:
 
    ```html
-   <markdown-directive type="containerDirective" name="Component">children</markdown-directive>
+   <markdown-directive type="containerDirective" name="Greeting">World</markdown-directive>
    ```
 
+2. In the frontend, when the HTML is being rendered into React elements with `@contentsgarten/html`, a list of `customComponents` can be passed to `<Html />`.
 
+   ```js
+   <Html html={src} customComponents={{ containerDirective: { Greeting } }} />
+   ```
 
+   …where `Greeting` is defined like this:
 
+   ```js
+   function Greeting({ children }) {
+     return <span>Ahoy {children}</span>
+   }
+   ```
 
+   …it is rendered into HTML like this:
 
-
+   ```html
+   <span>Ahoy World</span>
+   ```
 
 
 
