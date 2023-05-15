@@ -4,7 +4,7 @@ Contentsgarten allows adding custom components on the page by leveraging the [di
 
 They can be used to render elements other than those defined by Markdown.
 
-# Examples
+## Examples
 
 On Creatorsgarten wiki:
 
@@ -12,7 +12,7 @@ On Creatorsgarten wiki:
 - [`::Message`](https://creatorsgarten.org/wiki/Syntax#message) — Displays a message balloon, facilitates using a wiki as a discussion medium.
 - [`:Icon`](https://creatorsgarten.org/wiki/Syntax#icon) — Displays an icon.
 
-# Basic Syntax
+## Basic Syntax
 
 The syntax look like this:
 
@@ -40,3 +40,35 @@ Rules:
 
 - ComponentName must start with an uppercase to be recognized.
 - `[label]` and `{key=value}` parts are optional.
+
+## How it works
+
+1. When Markdown is being rendered into HTML by `@contentsgarten/markdown`, it is converted into a custom element syntax.
+
+   For example this:
+
+   ```md
+   :::Component
+   children
+   :::
+   ```
+
+   …gets turned into this:
+
+   ```html
+   <markdown-directive type="containerDirective" name="Component">children</markdown-directive>
+   ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
